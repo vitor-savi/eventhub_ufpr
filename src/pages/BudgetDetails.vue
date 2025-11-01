@@ -36,45 +36,147 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+
+import { ref, computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
+const route = useRoute()
 
-const budget = ref({
-  id: 1,
-  title: 'Aniversário de 15 anos',
-  type: 'Aniversário',
-  date: '20/01/2026',
-  guestCount: 80,
-  status: 'pendente',
-  services: ['Refeições', 'Bebidas', 'Materiais', 'Decoração', 'Profissionais'],
-  notes: 'Menu vegano, decoração rústica',
-  proposal: [
-    { name: 'Refeições (80x)', value: '4.000,00' },
-    { name: 'Open Bar (80x)', value: '2.000,00' },
-    { name: 'Decoração Completa', value: '2.000,00' },
-    { name: 'Banda + DJ', value: '2.000,00' },
-    { name: 'Fotografia/Filmagem', value: '1.000,00' }
-  ],
-  total: '11.000,00',
-  installments: 10,
-  installmentValue: '1.100,00'
-})
+// Mock dos orçamentos igual ao MyBudgets.vue
+const budgets = [
+  {
+    id: 1,
+    title: 'Aniversário de 15 anos',
+    type: 'Aniversário',
+    date: '20/01/2026',
+    guestCount: 80,
+    status: 'pendente',
+    services: ['Refeições', 'Bebidas', 'Materiais', 'Decoração', 'Profissionais'],
+    notes: 'Menu vegano, decoração rústica',
+    proposal: [
+      { name: 'Refeições (80x)', value: '4.000,00' },
+      { name: 'Open Bar (80x)', value: '2.000,00' },
+      { name: 'Decoração Completa', value: '2.000,00' },
+      { name: 'Banda + DJ', value: '2.000,00' },
+      { name: 'Fotografia/Filmagem', value: '1.000,00' }
+    ],
+    total: '8.000,00',
+    installments: 10,
+    installmentValue: '800,00'
+  },
+  {
+    id: 2,
+    title: 'Lançamento de Produto X',
+    type: 'Corporativo',
+    date: '15/12/2025',
+    guestCount: 120,
+    status: 'pendente',
+    services: ['Refeições', 'Bebidas', 'Materiais', 'Decoração', 'Profissionais'],
+    notes: 'Apresentação de produto, coquetel',
+    proposal: [
+      { name: 'Refeições (120x)', value: '6.000,00' },
+      { name: 'Open Bar (120x)', value: '3.000,00' },
+      { name: 'Decoração Corporativa', value: '2.000,00' },
+      { name: 'Palestrante', value: '1.000,00' }
+    ],
+    total: '12.000,00',
+    installments: 12,
+    installmentValue: '1.000,00'
+  },
+  {
+    id: 3,
+    title: 'Casamento de Maria e João',
+    type: 'Casamento',
+    date: '29/11/2025',
+    guestCount: 200,
+    status: 'confirmado',
+    services: ['Refeições', 'Bebidas', 'Materiais', 'Decoração', 'Profissionais'],
+    notes: 'Cerimônia ao ar livre',
+    proposal: [
+      { name: 'Buffet Completo (200x)', value: '10.000,00' },
+      { name: 'Open Bar (200x)', value: '5.000,00' },
+      { name: 'Decoração Floral', value: '4.000,00' },
+      { name: 'Banda', value: '3.000,00' }
+    ],
+    total: '22.000,00',
+    installments: 10,
+    installmentValue: '2.200,00'
+  },
+  {
+    id: 4,
+    title: 'Confraternização da Empresa',
+    type: 'Corporativo',
+    date: '25/11/2025',
+    guestCount: 100,
+    status: 'confirmado',
+    services: ['Refeições', 'Bebidas', 'Materiais', 'Decoração', 'Profissionais'],
+    notes: 'Festa de fim de ano',
+    proposal: [
+      { name: 'Buffet Completo (100x)', value: '7.000,00' },
+      { name: 'Open Bar (100x)', value: '3.000,00' },
+      { name: 'Decoração', value: '3.000,00' },
+      { name: 'DJ', value: '2.000,00' }
+    ],
+    total: '15.000,00',
+    installments: 10,
+    installmentValue: '1.500,00'
+  },
+  {
+    id: 5,
+    title: 'Festa de Formatura',
+    type: 'Formatura',
+    date: '10/10/2024',
+    guestCount: 150,
+    status: 'Realizado',
+    services: ['Refeições', 'Bebidas', 'Materiais', 'Decoração', 'Profissionais'],
+    notes: 'Formatura de Engenharia',
+    proposal: [
+      { name: 'Buffet Completo (150x)', value: '8.000,00' },
+      { name: 'Open Bar (150x)', value: '5.000,00' },
+      { name: 'Decoração', value: '3.000,00' },
+      { name: 'DJ', value: '2.000,00' }
+    ],
+    total: '18.000,00',
+    installments: 12,
+    installmentValue: '1.500,00'
+  },
+  {
+    id: 6,
+    title: 'Reunião Anual',
+    type: 'Corporativo',
+    date: '01/08/2024',
+    guestCount: 50,
+    status: 'Recusado',
+    services: ['Refeições', 'Bebidas', 'Materiais', 'Decoração', 'Profissionais'],
+    notes: 'Reunião de diretoria',
+    proposal: [
+      { name: 'Coffee Break (50x)', value: '2.000,00' },
+      { name: 'Decoração', value: '1.000,00' },
+      { name: 'Audiovisual', value: '2.000,00' }
+    ],
+    total: '5.000,00',
+    installments: 5,
+    installmentValue: '1.000,00'
+  }
+]
+
+const budgetId = Number(route.params.id)
+const budget = computed(() => budgets.find(b => b.id === budgetId) || budgets[0])
 
 function statusLabel(status) {
   if (status === 'pendente') return 'Aguardando sua Aprovação'
   if (status === 'confirmado') return 'Aprovado'
-  if (status === 'Realizado') return 'Realizado'
-  if (status === 'Recusado') return 'Recusado'
+  if (status === 'Realizado' || status === 'realizado') return 'Realizado'
+  if (status === 'Recusado' || status === 'recusado') return 'Recusado'
   return status
 }
 
 function statusBgColor(status) {
   if (status === 'pendente') return 'bg-yellow-100 text-yellow-800'
   if (status === 'confirmado') return 'bg-green-100 text-green-800'
-  if (status === 'Realizado') return 'bg-gray-100 text-gray-800'
-  if (status === 'Recusado') return 'bg-red-100 text-red-800'
+  if (status === 'Realizado' || status === 'realizado') return 'bg-gray-100 text-gray-800'
+  if (status === 'Recusado' || status === 'recusado') return 'bg-red-100 text-red-800'
   return 'bg-gray-100 text-gray-800'
 }
 
