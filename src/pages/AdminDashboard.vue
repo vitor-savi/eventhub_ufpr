@@ -25,6 +25,7 @@
                 <th class="py-2 px-3">Cliente</th>
                 <th class="py-2 px-3">Tipo de Evento</th>
                 <th class="py-2 px-3">Data Solicitação</th>
+                <th class="py-2 px-3">Valor</th>
                 <th class="py-2 px-3">Status Atual</th>
                 <th class="py-2 px-3">Ações</th>
               </tr>
@@ -34,6 +35,7 @@
                 <td class="py-2 px-3">{{ budget.cliente }}</td>
                 <td class="py-2 px-3">{{ budget.tipo }}</td>
                 <td class="py-2 px-3">{{ budget.data }}</td>
+                <td class="py-2 px-3">R$ {{ budget.valor }}</td>
                 <td class="py-2 px-3">
                   <span :class="getStatusClass(budget.status)">{{ budget.status }}</span>
                 </td>
@@ -67,21 +69,25 @@ const activeTab = ref('novas')
 const search = ref('')
 
 const budgets = ref([
-  { id: 1, cliente: 'Maria e João', tipo: 'Casamento', data: '20/12/2024', status: 'Novas Solicitações' },
-  { id: 2, cliente: 'Carlos Silva', tipo: 'Formatura', data: '15/01/2025', status: 'Em Análise' },
-  { id: 3, cliente: 'Empresa X', tipo: 'Corporativo', data: '10/11/2024', status: 'Aguardando Cliente' },
-  { id: 4, cliente: 'Ana Paula', tipo: 'Aniversário', data: '05/12/2024', status: 'Aprovados' },
-  { id: 5, cliente: 'Lucas Lima', tipo: 'Casamento', data: '22/12/2024', status: 'Recusados' }
+  { id: 1, cliente: 'Cliente', tipo: 'Aniversário', data: '20/01/2026', valor: '8.000,00', status: 'Pendente', title: 'Aniversário de 15 anos' },
+  { id: 2, cliente: 'Cliente', tipo: 'Corporativo', data: '15/12/2025', valor: '12.000,00', status: 'Pendente', title: 'Lançamento de Produto X' },
+  { id: 3, cliente: 'Maria e João', tipo: 'Casamento', data: '29/11/2025', valor: '22.000,00', status: 'Confirmado', title: 'Casamento de Maria e João' },
+  { id: 4, cliente: 'Empresa', tipo: 'Corporativo', data: '25/11/2025', valor: '15.000,00', status: 'Confirmado', title: 'Confraternização da Empresa' },
+  { id: 5, cliente: 'Cliente', tipo: 'Formatura', data: '10/10/2024', valor: '18.000,00', status: 'Realizado', title: 'Festa de Formatura' },
+  { id: 6, cliente: 'Cliente', tipo: 'Corporativo', data: '01/08/2024', valor: '5.000,00', status: 'Recusado', title: 'Reunião Anual' }
 ])
+
+const statusMap = {
+  novas: ['Novas Solicitações', 'Pendente'],
+  analise: ['Em Análise'],
+  aguardando: ['Aguardando Cliente'],
+  aprovados: ['Aprovados', 'Confirmado'],
+  recusados: ['Recusados', 'Recusado']
+}
 
 const filteredBudgets = computed(() => {
   return budgets.value.filter(b => {
-    const matchesTab =
-      (activeTab.value === 'novas' && b.status === 'Novas Solicitações') ||
-      (activeTab.value === 'analise' && b.status === 'Em Análise') ||
-      (activeTab.value === 'aguardando' && b.status === 'Aguardando Cliente') ||
-      (activeTab.value === 'aprovados' && b.status === 'Aprovados') ||
-      (activeTab.value === 'recusados' && b.status === 'Recusados')
+    const matchesTab = statusMap[activeTab.value]?.includes(b.status)
     const matchesSearch =
       b.cliente.toLowerCase().includes(search.value.toLowerCase()) ||
       b.tipo.toLowerCase().includes(search.value.toLowerCase())
