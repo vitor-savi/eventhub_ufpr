@@ -1,5 +1,5 @@
 <template>
-  <PublicLayout headerBg="primary">
+  <PublicLayout headerBg="" headerBgGradient>
     <div class="min-h-screen bg-white py-20">
       <div class="container mx-auto px-4">
         <h1 class="text-4xl font-bold text-primary text-center mb-10">Sobre Nós</h1>
