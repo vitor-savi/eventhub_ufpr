@@ -1,5 +1,5 @@
 <template>
-  <header class="fixed w-full top-0 z-50 py-4">
+  <header :class="['fixed w-full top-0 z-50 py-4', bg === 'primary' ? 'bg-primary' : 'bg-transparent']">
     <div class="container mx-auto flex items-center justify-between px-4">
       <router-link to="/" class="text-2xl font-bold text-white">EVENTHUB</router-link>
       <nav class="flex items-center space-x-6">
@@ -15,3 +15,15 @@
     </div>
   </header>
 </template>
+
+<script setup>
+const props = defineProps({
+  bg: {
+    type: String,
+    default: ''
+  }
+})
+</script>
+
+<style scoped>
+</style>
