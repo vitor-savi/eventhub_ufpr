@@ -23,6 +23,18 @@ const routes = [
     path: '/esqueci-senha',
     component: () => import('../pages/ForgotPassword.vue')
   },
+  {
+    path: '/servicos',
+    component: () => import('../pages/Servicos.vue')
+  },
+  {
+    path: '/sobre-nos',
+    component: () => import('../pages/SobreNos.vue')
+  },
+  {
+    path: '/contato',
+    component: () => import('../pages/Contato.vue')
+  },
   
   // Client routes
   {
