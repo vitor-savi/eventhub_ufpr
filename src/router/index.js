@@ -65,6 +65,10 @@ const routes = [
       {
         path: 'orcamentos/:id',
         component: () => import('../pages/BudgetDetails.vue'),
+      },
+      {
+        path: 'perfil',
+        component: () => import('../pages/ClientProfile.vue'),
       }
     ]
   },
