@@ -1,113 +1,102 @@
 <template>
-  <ClientLayout>
-    <div class="container mx-auto px-4 py-8 max-w-3xl">
-      <h1 class="text-2xl font-bold mb-8">Solicitar Novo Orçamento</h1>
-
-      <form @submit.prevent="handleSubmit" class="space-y-6">
-        <!-- Event Name -->
+  <div class="container mx-auto px-4 py-16">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
+      <h1 class="text-3xl font-bold text-primary mb-6 md:mb-0">Solicitar Novo Orçamento</h1>
+      <router-link to="/cliente/dashboard" class="px-5 py-2 bg-blue-50 text-blue-700 rounded font-medium border border-blue-200 hover:bg-blue-100 transition-colors">Voltar para Meus Eventos</router-link>
+    </div>
+    <form @submit.prevent="handleSubmit" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Card 1: Dados do Evento -->
+      <div class="bg-white rounded-xl shadow border border-blue-100 p-8 flex flex-col gap-6">
         <div>
-          <label class="block text-sm font-medium mb-2">Nome/Apelido para o Evento</label>
+          <label class="block font-semibold text-gray-700 mb-2">Nome/Apelido para Evento</label>
           <input 
-            v-model="form.name"
-            type="text"
-            placeholder="Ex: Casamento Ana & Rafa"
-            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            required
+            type="text" 
+            v-model="form.name" 
+            class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" 
+            placeholder="Ex: Casamento Ana & Beto" 
+            required 
           />
         </div>
-
-        <!-- Event Type -->
         <div>
-          <label class="block text-sm font-medium mb-2">Tipo de Evento</label>
+          <label class="block font-semibold text-gray-700 mb-2">Tipo de Evento</label>
           <select 
-            v-model="form.type"
-            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            v-model="form.type" 
+            class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" 
             required
           >
-            <option value="">Selecione o tipo de evento</option>
+            <option value="">Selecione...</option>
             <option v-for="service in services" :key="service.id" :value="service.name">
               {{ service.name }}
             </option>
           </select>
         </div>
-
-        <!-- Event Date -->
         <div>
-          <label class="block text-sm font-medium mb-2">Data Prevista do Evento</label>
+          <label class="block font-semibold text-gray-700 mb-2">Data Prevista do Evento</label>
           <input 
-            v-model="form.date"
-            type="date"
-            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            required
+            type="date" 
+            v-model="form.date" 
+            class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" 
+            required 
           />
         </div>
-
-        <!-- Guest Count -->
         <div>
-          <label class="block text-sm font-medium mb-2">Número Estimado de Convidados</label>
+          <label class="block font-semibold text-gray-700 mb-2">Número Estimado de Convidados</label>
           <input 
-            v-model="form.guestCount"
-            type="number"
-            placeholder="Ex: 100"
-            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            required
+            type="number" 
+            v-model="form.guestCount" 
+            min="1" 
+            class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" 
+            required 
           />
         </div>
-
-        <!-- Services -->
-        <div class="space-y-4">
-          <h3 class="font-medium">Serviços Desejados</h3>
-          
-          <div class="space-y-4">
-            <div v-for="service in availableServices" :key="service.id" class="space-y-2">
-              <div class="flex items-center">
+      </div>
+      <!-- Card 2: Serviços Desejados -->
+      <div class="bg-white rounded-xl shadow border border-blue-100 p-8 flex flex-col gap-6">
+        <div>
+          <label class="block font-semibold text-gray-700 mb-2">Serviços Desejados</label>
+          <div class="space-y-3">
+            <div v-for="service in availableServices" :key="service.id">
+              <label class="flex items-center gap-2">
                 <input 
-                  :id="service.id"
-                  v-model="form.selectedServices"
-                  :value="service.name"
-                  type="checkbox"
-                  class="rounded text-primary"
-                />
-                <label :for="service.id" class="ml-2">{{ service.name }}</label>
-              </div>
+                  type="checkbox" 
+                  v-model="form.selectedServices" 
+                  :value="service.name" 
+                /> 
+                {{ service.name }}
+              </label>
               <input 
-                v-if="form.selectedServices.includes(service.name)"
-                v-model="form.serviceDetails[service.name]"
-                type="text"
-                :placeholder="service.detailsPlaceholder"
-                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                v-if="form.selectedServices.includes(service.name)" 
+                type="text" 
+                v-model="form.serviceDetails[service.name]" 
+                class="mt-2 w-full px-3 py-1 border rounded text-sm" 
+                :placeholder="service.detailsPlaceholder" 
               />
             </div>
           </div>
         </div>
-
-        <!-- Additional Notes -->
         <div>
-          <label class="block text-sm font-medium mb-2">Observações e Detalhes Adicionais</label>
+          <label class="block font-semibold text-gray-700 mb-2">Observações e Detalhes Adicionais</label>
           <textarea 
-            v-model="form.notes"
-            rows="4"
-            placeholder="Descreva o que não coube nos campos acima..."
-            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            v-model="form.notes" 
+            rows="4" 
+            class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary" 
+            placeholder="Descreva aqui qualquer detalhe adicional..."
           ></textarea>
         </div>
-
-        <!-- Submit Button -->
         <button 
-          type="submit"
-          class="w-full py-3 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          type="submit" 
+          class="w-full py-3 bg-blue-600 text-white rounded font-bold hover:bg-blue-700 transition-colors text-lg"
         >
           Enviar Solicitação de Orçamento
         </button>
-      </form>
-    </div>
-  </ClientLayout>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script setup>
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
-import ClientLayout from '../layouts/ClientLayout.vue'
 import { useServicesStore } from '../store/services'
 
 const router = useRouter()
