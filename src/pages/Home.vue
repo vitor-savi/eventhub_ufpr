@@ -48,7 +48,7 @@
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div class="p-6">
-            <div class="text-4xl font-bold text-primary mb-2">500+</div>
+            <div class="text-4xl font-bold text-primary mb-2">4000+</div>
             <div class="text-gray-600">Eventos Realizados</div>
           </div>
           <div class="p-6">
@@ -56,11 +56,11 @@
             <div class="text-gray-600">Clientes Satisfeitos</div>
           </div>
           <div class="p-6">
-            <div class="text-4xl font-bold text-primary mb-2">50+</div>
+            <div class="text-4xl font-bold text-primary mb-2">100+</div>
             <div class="text-gray-600">Parceiros</div>
           </div>
           <div class="p-6">
-            <div class="text-4xl font-bold text-primary mb-2">5</div>
+            <div class="text-4xl font-bold text-primary mb-2">35</div>
             <div class="text-gray-600">Anos de Experiência</div>
           </div>
         </div>

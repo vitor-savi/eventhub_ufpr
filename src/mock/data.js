@@ -1,5 +1,5 @@
 export const users = [
-  { email: 'cliente@gmail.com', role: 'cliente', nome: 'João Cliente' },
+  { email: 'cliente@gmail.com', role: 'cliente', nome: 'Vitor Savi' },
   { email: 'admin@eventhub.com', role: 'admin', nome: 'Maria Admin' }
 ]
 
