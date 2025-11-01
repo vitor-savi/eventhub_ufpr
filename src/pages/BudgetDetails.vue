@@ -1,149 +1,43 @@
 <template>
-  <ClientLayout>
-    <div class="container mx-auto px-4 py-8 max-w-4xl">
-      <div class="mb-6">
-        <h1 class="text-2xl font-bold">Orçamento para: {{ budget.eventName }}</h1>
-        <p class="text-blue-600">{{ budget.status }}</p>
+  <div class="container mx-auto px-4 py-16 max-w-4xl">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-primary">Orçamento para: Casamento Ana & Beto</h1>
+      <div class="mt-4 px-6 py-3 rounded-lg bg-yellow-100 text-yellow-800 font-semibold text-lg w-fit">Status: Aguardando sua Aprovação</div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+      <!-- Detalhes da Solicitação -->
+      <div class="bg-white rounded-xl shadow border border-blue-100 p-6 flex flex-col gap-3">
+        <h2 class="font-bold text-lg mb-2 text-gray-700">Detalhes da Solicitação</h2>
+        <div class="text-sm text-gray-700">Tipo de Evento: Casamento</div>
+        <div class="text-sm text-gray-700">Data Prevista: 20/07/2026</div>
+        <div class="text-sm text-gray-700">Nº Convidados: 150</div>
+        <div class="text-sm text-gray-700">Serviços: Refeições, Bebidas, Materiais, Decoração, Profissionais</div>
+        <div class="text-sm text-gray-700">Observações do Cliente: Menu vegano, decoração rústica</div>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Left Column - Event Details -->
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h2 class="text-xl font-bold mb-4">Detalhes da Solicitação</h2>
-          
-          <div class="space-y-4">
-            <div>
-              <p class="font-medium">Tipo de Evento:</p>
-              <p>{{ budget.eventType }}</p>
-            </div>
-
-            <div>
-              <p class="font-medium">Data:</p>
-              <p>{{ budget.date }}</p>
-            </div>
-
-            <div>
-              <p class="font-medium">Local:</p>
-              <p>{{ budget.venue }}</p>
-            </div>
-
-            <div>
-              <p class="font-medium">Número de Convidados:</p>
-              <p>{{ budget.guestCount }}</p>
-            </div>
-
-            <div>
-              <p class="font-medium">Serviços Solicitados:</p>
-              <p>{{ budget.requestedServices.join(', ') }}</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Column - Budget Breakdown -->
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h2 class="text-xl font-bold mb-4">Proposta da EVENTHUB</h2>
-
-          <!-- Buffet Section -->
-          <div class="mb-6">
-            <h3 class="font-bold mb-2">Buffet</h3>
-            <div class="space-y-2">
-              <div class="flex justify-between">
-                <span>Jantar Completo (100 pessoas)</span>
-                <span>R$ 5.000,00</span>
-              </div>
-              <div class="flex justify-between">
-                <span>Bebidas (100 pessoas)</span>
-                <span>R$ 1.500,00</span>
-              </div>
-              <div class="flex justify-between font-medium">
-                <span>Subtotal Buffet:</span>
-                <span>R$ 6.500,00</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Decoration Section -->
-          <div class="mb-6">
-            <h3 class="font-bold mb-2">Decoração</h3>
-            <div class="space-y-2">
-              <div class="flex justify-between">
-                <span>Decoração Temática</span>
-                <span>R$ 2.000,00</span>
-              </div>
-              <div class="flex justify-between">
-                <span>Arranjos de Flores</span>
-                <span>R$ 800,00</span>
-              </div>
-              <div class="flex justify-between font-medium">
-                <span>Subtotal Decoração:</span>
-                <span>R$ 2.800,00</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Music Section -->
-          <div class="mb-6">
-            <h3 class="font-bold mb-2">Música</h3>
-            <div class="space-y-2">
-              <div class="flex justify-between">
-                <span>DJ e Equipamento (4h)</span>
-                <span>R$ 1.200,00</span>
-              </div>
-              <div class="flex justify-between font-medium">
-                <span>Subtotal Música:</span>
-                <span>R$ 1.200,00</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Total -->
-          <div class="bg-blue-50 p-4 rounded-lg mt-8">
-            <div class="text-xl font-bold flex justify-between text-blue-900">
-              <span>Valor Total do Orçamento:</span>
-              <span>R$ 10.500,00</span>
-            </div>
-            <p class="text-blue-600 text-center mt-2">em 10 parcelas de R$ 1.050,00</p>
-          </div>
-
-          <!-- Action Buttons -->
-          <div class="flex gap-4 mt-8">
-            <button 
-              @click="handleApprove"
-              class="flex-1 py-3 px-4 bg-green-600 text-white rounded-md hover:bg-green-700"
-            >
-              APROVAR ORÇAMENTO
-            </button>
-            <button 
-              @click="handleReject"
-              class="flex-1 py-3 px-4 bg-red-600 text-white rounded-md hover:bg-red-700"
-            >
-              RECUSAR ORÇAMENTO
-            </button>
-          </div>
-
-          <button 
-            @click="handleContact"
-            class="w-full mt-4 py-3 px-4 border border-gray-300 rounded-md hover:bg-gray-50"
-          >
-            Entrar em Contato para Dúvidas
-          </button>
-
-          <!-- Download PDF -->
-          <div class="text-center mt-6">
-            <a href="#" class="text-blue-600 hover:underline">
-              Baixar Proposta Completa (PDF)
-            </a>
-          </div>
-        </div>
+      <!-- Proposta da EVENTHUB -->
+      <div class="bg-white rounded-xl shadow border border-blue-100 p-6 flex flex-col gap-3">
+        <h2 class="font-bold text-lg mb-2 text-gray-700">Proposta da EVENTHUB</h2>
+        <div class="flex justify-between text-sm text-gray-700"><span>Refeições (150x)</span><span>R$ 7.000,00</span></div>
+        <div class="flex justify-between text-sm text-gray-700"><span>Open Bar (150x)</span><span>R$ 4.000,00</span></div>
+        <div class="flex justify-between text-sm text-gray-700"><span>Decoração Completa</span><span>R$ 5.000,00</span></div>
+        <div class="flex justify-between text-sm text-gray-700"><span>Banda + DJ</span><span>R$ 4.000,00</span></div>
+        <div class="flex justify-between text-sm text-gray-700"><span>Fotografia/Filmagem</span><span>R$ 2.000,00</span></div>
+        <div class="mt-4 font-bold text-lg text-primary">Valor Total do Orçamento: R$ 22.000,00</div>
+        <div class="text-sm text-gray-600">em 12x de R$ 1.833,33 sem juros</div>
+        <a href="#" class="mt-2 text-blue-700 underline text-sm">Baixar Proposta Completa (PDF)</a>
       </div>
     </div>
-  </ClientLayout>
+    <div class="flex flex-col md:flex-row gap-4 mt-8">
+      <button class="flex-1 py-3 bg-green-600 text-white rounded font-bold hover:bg-green-700 transition-colors text-lg">APROVAR ORÇAMENTO</button>
+      <button class="flex-1 py-3 bg-red-600 text-white rounded font-bold hover:bg-red-700 transition-colors text-lg">RECUSAR ORÇAMENTO</button>
+      <button class="flex-1 py-3 bg-blue-50 text-blue-700 rounded font-bold border border-blue-200 hover:bg-blue-100 transition-colors text-lg">Entrar em Contato para Dúvidas</button>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import ClientLayout from '../layouts/ClientLayout.vue'
 
 const router = useRouter()
 
