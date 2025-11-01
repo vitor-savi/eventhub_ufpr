@@ -7,7 +7,7 @@
         class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-full shadow font-semibold hover:bg-blue-700 transition-colors text-lg"
       >
         <i class="pi pi-plus mr-2"></i>
-        + Solicitar Novo Evento
+        Solicitar Novo Evento
       </router-link>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -81,13 +81,13 @@ const router = useRouter()
 const eventsStore = useEventsStore()
 
 const pendingEvents = computed(() => [
-  { id: 1, title: 'Aniversário de 15 anos', date: '20/12/2024', status: 'pendente' },
-  { id: 2, title: 'Lançamento de Produto X', date: '15/11/2024', status: 'pendente' }
+  { id: 1, title: 'Aniversário de 15 anos', date: '20/01/2026', status: 'pendente' },
+  { id: 2, title: 'Lançamento de Produto X', date: '15/12/2025', status: 'pendente' }
 ])
 
 const upcomingEvents = computed(() => [
-  { id: 3, title: 'Casamento de Maria e João', date: '20/07/2024', status: 'confirmado' },
-  { id: 4, title: 'Confraternização da Empresa', date: '05/09/2024', status: 'confirmado' }
+  { id: 3, title: 'Casamento de Maria e João', date: '29/11/2025', status: 'confirmado' },
+  { id: 4, title: 'Confraternização da Empresa', date: '25/11/2025', status: 'confirmado' }
 ])
 
 const pastEvents = computed(() => [
