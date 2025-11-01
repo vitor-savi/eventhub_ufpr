@@ -6,7 +6,7 @@
         <div class="flex items-center gap-4">
           <span class="w-4 h-4 rounded-full" :class="statusColor(budget.status)"></span>
           <div>
-            <div class="font-bold text-lg text-gray-800">{{ budget.eventName }}</div>
+            <div class="font-bold text-lg text-gray-800">{{ budget.title }}</div>
             <div class="text-sm text-gray-500">{{ budget.date }}</div>
             <div class="text-xs" :class="statusTextColor(budget.status)">Status: {{ budget.status }}</div>
           </div>
@@ -22,53 +22,29 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
 
 const budgets = ref([
-  { 
-    id: 1, 
-    eventName: 'Casamento Maria e João', 
-    date: '20/12/2024', 
-    value: 15000,
-    status: 'Aguardando Aprovação' 
-  },
-  { 
-    id: 2, 
-    eventName: 'Aniversário 15 Anos', 
-    date: '15/01/2025', 
-    value: 8000,
-    status: 'Em Análise' 
-  },
-  { 
-    id: 3, 
-    eventName: 'Formatura', 
-    date: '10/03/2025', 
-    value: 12000,
-    status: 'Aprovado' 
-  }
+  { id: 1, title: 'Aniversário de 15 anos', date: '20/01/2026', status: 'pendente', value: '8.000,00' },
+  { id: 2, title: 'Lançamento de Produto X', date: '15/12/2025', status: 'pendente', value: '12.000,00' },
+  { id: 3, title: 'Casamento de Maria e João', date: '29/11/2025', status: 'confirmado', value: '22.000,00' },
+  { id: 4, title: 'Confraternização da Empresa', date: '25/11/2025', status: 'confirmado', value: '15.000,00' },
+  { id: 5, title: 'Festa de Formatura', date: '10/10/2024', status: 'Realizado', value: '18.000,00' },
+  { id: 6, title: 'Reunião Anual', date: '01/08/2024', status: 'Recusado', value: '5.000,00' }
 ])
 
-function viewBudget(id) {
-  router.push(`/cliente/orcamentos/${id}`)
-}
-
 function statusColor(status) {
-  switch (status.toLowerCase()) {
-    case 'aprovado': return 'bg-green-500'
-    case 'aguardando aprovação': return 'bg-orange-500'
-    case 'em análise': return 'bg-blue-500'
-    default: return 'bg-gray-300'
-  }
+  if (status === 'pendente') return 'bg-yellow-400'
+  if (status === 'confirmado') return 'bg-green-500'
+  if (status === 'realizado') return 'bg-gray-400'
+  if (status === 'recusado') return 'bg-red-500'
+  return 'bg-gray-400'
 }
 
 function statusTextColor(status) {
-  switch (status.toLowerCase()) {
-    case 'aprovado': return 'text-green-600'
-    case 'aguardando aprovação': return 'text-orange-600'
-    case 'em análise': return 'text-blue-600'
-    default: return 'text-gray-600'
-  }
+  if (status === 'pendente') return 'text-yellow-600'
+  if (status === 'confirmado') return 'text-green-600'
+  if (status === 'realizado') return 'text-gray-600'
+  if (status === 'recusado') return 'text-red-600'
+  return 'text-gray-600'
 }
 </script>
