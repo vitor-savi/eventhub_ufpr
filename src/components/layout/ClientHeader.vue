@@ -1,16 +1,16 @@
 <template>
-  <header class="bg-[#1B1F38] text-white py-4">
+  <header class="fixed w-full top-0 z-50 py-4 bg-gradient-to-r from-primary/90 to-primary/80">
     <div class="container mx-auto flex items-center justify-between px-4">
-      <router-link to="/cliente/dashboard" class="text-xl font-bold">EVENTHUB</router-link>
-      <nav class="flex items-center space-x-6">
-        <router-link to="/cliente/meus-eventos" class="hover:text-primary">Meus Eventos</router-link>
-        <router-link to="/cliente/orcamentos" class="hover:text-primary">Orçamentos</router-link>
-        <router-link to="/cliente/perfil" class="hover:text-primary">Perfil</router-link>
-        <div class="flex items-center space-x-2">
-          <span>Olá, {{ userName }}</span>
-          <button @click="logout" class="hover:text-primary">Sair</button>
-        </div>
-      </nav>
+      <div class="flex items-center space-x-8">
+        <router-link to="/cliente/dashboard" class="text-2xl font-bold text-white">EVENTHUB</router-link>
+        <router-link to="/cliente/dashboard" class="text-white font-medium hover:text-white/80 transition-colors">Meus Eventos</router-link>
+        <router-link to="/cliente/orcamentos" class="text-white font-medium hover:text-white/80 transition-colors">Orçamentos</router-link>
+        <router-link to="/cliente/perfil" class="text-white font-medium hover:text-white/80 transition-colors">Perfil</router-link>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="text-white/90 font-medium">Olá, {{ userName }}</span>
+        <button @click="logout" class="px-4 py-2 bg-white text-primary rounded-full font-medium hover:bg-white/90 transition-colors">Sair</button>
+      </div>
     </div>
   </header>
 </template>

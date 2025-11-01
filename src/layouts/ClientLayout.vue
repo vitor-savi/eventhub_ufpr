@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <ClientHeader />
-    <main class="container mx-auto p-6">
+    <main class="container mx-auto p-6 pt-24">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
