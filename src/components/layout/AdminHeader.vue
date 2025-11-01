@@ -1,17 +1,17 @@
 <template>
-  <header class="bg-[#1B1F38] text-white py-4">
-    <div class="container mx-auto flex items-center justify-between px-4">
-      <router-link to="/admin/dashboard" class="text-xl font-bold">EVENTHUB</router-link>
-      <nav class="flex items-center space-x-6">
-        <router-link to="/admin/eventos" class="hover:text-primary">Eventos</router-link>
-        <router-link to="/admin/orcamentos" class="hover:text-primary">Orçamentos</router-link>
-        <router-link to="/admin/clientes" class="hover:text-primary">Clientes</router-link>
-        <router-link to="/admin/relatorios" class="hover:text-primary">Relatórios</router-link>
-        <div class="flex items-center space-x-2">
-          <span>Olá, {{ userName }}</span>
-          <button @click="logout" class="hover:text-primary">Sair</button>
-        </div>
-      </nav>
+  <header class="w-full top-0 z-50 py-4 bg-gradient-to-r from-purple-500 to-purple-400">
+    <div class="container mx-auto flex items-center justify-between px-8">
+      <div class="flex items-center gap-8">
+        <router-link to="/admin/dashboard" class="text-2xl font-extrabold text-white tracking-wide">EVENTHUB</router-link>
+        <router-link to="/admin/eventos" class="text-white font-medium hover:text-white/80 transition-colors">Eventos</router-link>
+        <router-link to="/admin/orcamentos" class="text-white font-medium hover:text-white/80 transition-colors">Orçamentos</router-link>
+        <router-link to="/admin/clientes" class="text-white font-medium hover:text-white/80 transition-colors">Clientes</router-link>
+        <router-link to="/admin/relatorios" class="text-white font-medium hover:text-white/80 transition-colors">Relatórios</router-link>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="text-white/90 font-medium">Olá, {{ userName }}</span>
+        <button @click="logout" class="px-5 py-2 bg-white text-purple-600 rounded-full font-bold hover:bg-white/90 transition-colors">Sair</button>
+      </div>
     </div>
   </header>
 </template>
