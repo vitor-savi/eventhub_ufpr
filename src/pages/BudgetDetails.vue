@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-4 py-16 max-w-4xl">
     <div class="mb-8">
-      <h1 class="text-3xl font-bold text-primary">TESTE do TESTE para: {{ budget.title }}</h1>
+      <h1 class="text-3xl font-bold text-primary">Orçamento para: {{ budget.title }}</h1>
       <div class="mt-4 px-6 py-3 rounded-lg" :class="statusBgColor(budget.status) + ' font-semibold text-lg w-fit'">
         Status: {{ statusLabel(budget.status) }}
       </div>
