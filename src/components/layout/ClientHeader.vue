@@ -26,6 +26,6 @@ const userName = computed(() => auth.user?.nome || 'Cliente')
 
 function logout() {
   auth.logout()
-  router.push('/login')
+  router.push('/')
 }
 </script>
