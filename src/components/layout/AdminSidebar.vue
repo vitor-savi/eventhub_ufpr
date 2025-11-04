@@ -1,13 +1,10 @@
 <template>
-  <aside :class="['transition-all duration-200 ease-in-out', collapsed ? 'w-16' : 'w-64']" class="fixed top-16 left-0 h-[calc(100vh-4rem)] bg-gradient-to-b from-purple-800 to-purple-700 text-white py-8 px-4 overflow-auto">
-    <div :class="collapsed ? 'text-sm' : 'text-base'" class="mb-6 font-bold">
-      <router-link to="/admin/dashboard" class="block" v-if="!collapsed">EVENTHUB</router-link>
-      <router-link to="/admin/dashboard" class="block text-center" v-else>EH</router-link>
-    </div>
+  <aside :class="['transition-all duration-200 ease-in-out', collapsed ? 'w-16' : 'w-64']" class="fixed top-16 left-0 h-[calc(100vh-4rem)] bg-gradient-to-b from-purple-800 to-purple-700 text-white py-4 px-4 overflow-auto">
+    <!-- removed the empty title block and reduced vertical padding to tighten spacing under the header -->
 
     <nav class="flex flex-col gap-3">
       <div>
-        <div class="text-xs font-semibold text-purple-200 mb-2" v-if="!collapsed">Gestão de Orçamentos</div>
+        <div class="text-xs font-semibold text-purple-200 mb-1" v-if="!collapsed">Gestão de Orçamentos</div>
         <router-link to="/admin/novas-solicitacoes" class="block py-2 px-2 rounded hover:bg-purple-700">Novas Solicitações</router-link>
         <router-link to="/admin/orcamentos" class="block py-2 px-2 rounded hover:bg-purple-700">Todos Orçamentos</router-link>
       </div>

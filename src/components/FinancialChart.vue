@@ -1,5 +1,5 @@
 <template>
-  <svg :width="width" :height="height" class="w-full h-36">
+  <svg :viewBox="`0 0 ${width} ${height}`" preserveAspectRatio="xMidYMid meet" class="w-full h-40">
     <g v-for="(bar, i) in bars" :key="bar.label">
       <rect :x="i * (barWidth + gap) + gap" :y="height - bar.height - bottomPadding" :width="barWidth" :height="bar.height" :fill="barColor" rx="6"></rect>
       <text :x="i * (barWidth + gap) + gap + barWidth/2" :y="height - 6" font-size="12" text-anchor="middle" fill="#6B7280">{{ bar.label }}</text>

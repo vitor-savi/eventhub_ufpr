@@ -1,6 +1,6 @@
 <template>
   <header class="fixed left-0 w-full top-0 z-50 h-16 bg-gradient-to-r from-purple-500 to-purple-400">
-    <div class="max-w-7xl mx-auto flex items-center justify-between h-full px-8">
+  <div :class="['flex items-center justify-between h-full pr-8', collapsed ? 'pl-16' : 'pl-1']">
       <div class="flex items-center gap-4">
         <button @click="toggleSidebar" class="text-white/90 px-3 py-2 rounded hover:bg-white/10 md:hidden">☰</button>
         <button @click="toggleSidebar" class="text-white/90 px-3 py-2 rounded hover:bg-white/10 hidden md:inline-block">☰</button>
@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
- import { computed, inject } from 'vue'
+import { computed, inject } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../../store/auth'
 
@@ -31,8 +31,9 @@ function logout() {
   auth.logout()
   router.push('/')
 }
- const toggle = inject('toggleAdminSidebar')
- function toggleSidebar() {
-   if (toggle) toggle()
- }
+const toggle = inject('toggleAdminSidebar')
+const collapsed = inject('adminSidebarCollapsed')
+function toggleSidebar() {
+  if (toggle) toggle()
+}
 </script>
