@@ -1,7 +1,8 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <AdminHeader />
-    <main class="container mx-auto p-6">
+    <AdminSidebar />
+    <main :class="['p-6 pt-16 transition-all duration-200', collapsed ? 'ml-16' : 'ml-64']">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
@@ -13,6 +14,12 @@
 
 <script setup>
 import AdminHeader from '../components/layout/AdminHeader.vue'
+import AdminSidebar from '../components/layout/AdminSidebar.vue'
+import { ref, provide } from 'vue'
+
+const collapsed = ref(false)
+provide('adminSidebarCollapsed', collapsed)
+provide('toggleAdminSidebar', () => { collapsed.value = !collapsed.value })
 </script>
 
 <style>
