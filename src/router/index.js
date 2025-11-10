@@ -82,6 +82,18 @@ const routes = [
       {
         path: 'dashboard',
         component: () => import('../pages/AdminDashboard.vue'),
+      },
+      {
+        path: 'orcamentos',
+        component: () => import('../pages/AdminBudgets.vue'),
+      },
+      {
+        path: 'orcamentos/:id/analisar',
+        component: () => import('../pages/AdminBudgetEditor.vue'),
+      },
+      {
+        path: 'orcamentos/:id',
+        component: () => import('../pages/BudgetDetails.vue'),
       }
     ]
   },
