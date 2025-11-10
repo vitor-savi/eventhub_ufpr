@@ -1,6 +1,6 @@
 <template>
   <PublicLayout headerBg="" headerBgGradient>
-    <div class="min-h-screen bg-white py-20">
+    <div class="min-h-screen bg-white py-20 pt-32">
       <div class="container mx-auto px-4">
         <h1 class="text-4xl font-bold text-primary text-center mb-10">Sobre Nós</h1>
         <div class="max-w-3xl mx-auto text-center mb-12">
