@@ -94,6 +94,14 @@ const routes = [
       {
         path: 'orcamentos/:id',
         component: () => import('../pages/BudgetDetails.vue'),
+      },
+      {
+        path: 'profissionais',
+        component: () => import('../pages/AdminStaffManagement.vue'),
+      },
+      {
+        path: 'profissionais/:eventId',
+        component: () => import('../pages/AdminStaffAllocation.vue'),
       }
     ]
   },
