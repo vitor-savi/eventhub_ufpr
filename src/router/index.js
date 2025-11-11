@@ -131,6 +131,16 @@ const routes = [
         path: 'clientes',
         component: () => import('../pages/AdminClients.vue'),
       }
+      ,
+      {
+        path: 'tipos-evento',
+        component: () => import('../pages/AdminEventTypes.vue'),
+      }
+      ,
+      {
+        path: 'categorias-servico',
+        component: () => import('../pages/AdminServiceCategories.vue'),
+      }
     ]
   },
 
