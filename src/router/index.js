@@ -126,6 +126,11 @@ const routes = [
         path: 'importar-historico',
         component: () => import('../pages/AdminImportHistory.vue'),
       }
+      ,
+      {
+        path: 'clientes',
+        component: () => import('../pages/AdminClients.vue'),
+      }
     ]
   },
 
