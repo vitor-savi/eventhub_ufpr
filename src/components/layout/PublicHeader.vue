@@ -4,7 +4,6 @@
       <router-link to="/" class="text-2xl font-bold text-white">EVENTHUB</router-link>
       <nav class="flex items-center space-x-6">
         <router-link to="/" class="text-white font-medium hover:text-white/80 transition-colors">Home</router-link>
-        <router-link to="/servicos" class="text-white font-medium hover:text-white/80 transition-colors">Serviços</router-link>
         <router-link to="/sobre-nos" class="text-white font-medium hover:text-white/80 transition-colors">Sobre Nós</router-link>
         <router-link to="/contato" class="text-white font-medium hover:text-white/80 transition-colors">Contato</router-link>
         <div class="flex items-center space-x-3">
