@@ -141,6 +141,11 @@ const routes = [
         path: 'categorias-servico',
         component: () => import('../pages/AdminServiceCategories.vue'),
       }
+      ,
+      {
+        path: 'perfil',
+        component: () => import('../pages/AdminProfile.vue'),
+      }
     ]
   },
 
