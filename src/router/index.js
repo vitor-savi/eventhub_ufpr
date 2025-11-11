@@ -116,6 +116,11 @@ const routes = [
         path: 'cadastrar-custos',
         component: () => import('../pages/AdminCostManagement.vue'),
       }
+      ,
+      {
+        path: 'gerenciar-precos',
+        component: () => import('../pages/AdminPriceManagement.vue'),
+      }
     ]
   },
 
