@@ -106,6 +106,10 @@ const routes = [
       {
         path: 'profissionais/:eventId',
         component: () => import('../pages/AdminStaffAllocation.vue'),
+      },
+      {
+        path: 'relatorios-financeiros',
+        component: () => import('../pages/AdminFinancialReports.vue'),
       }
     ]
   },
