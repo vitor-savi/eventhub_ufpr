@@ -111,6 +111,11 @@ const routes = [
         path: 'relatorios-financeiros',
         component: () => import('../pages/AdminFinancialReports.vue'),
       }
+      ,
+      {
+        path: 'cadastrar-custos',
+        component: () => import('../pages/AdminCostManagement.vue'),
+      }
     ]
   },
 
