@@ -84,6 +84,10 @@ const routes = [
         component: () => import('../pages/AdminDashboard.vue'),
       },
       {
+        path: 'agenda',
+        component: () => import('../pages/AdminEventAgenda.vue'),
+      },
+      {
         path: 'orcamentos',
         component: () => import('../pages/AdminBudgets.vue'),
       },

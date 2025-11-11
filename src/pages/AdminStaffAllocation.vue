@@ -120,7 +120,7 @@
     <!-- Actions -->
     <div class="flex flex-col sm:flex-row gap-4 justify-end">
       <button @click="goBack" class="px-6 py-3 rounded border border-gray-300 bg-white text-gray-700 font-semibold hover:bg-gray-50">
-        Voltar para Agenda
+        Voltar para Início
       </button>
       <button @click="saveAllocations" class="px-6 py-3 rounded bg-gradient-to-r from-green-500 to-green-400 text-white font-bold hover:shadow-lg">
         Salvar Alocações
