@@ -20,6 +20,7 @@
         <router-link to="/admin/relatorios-financeiros" class="block py-2 px-2 rounded hover:bg-purple-700">Relatórios Financeiros</router-link>
         <router-link to="/admin/cadastrar-custos" class="block py-2 px-2 rounded hover:bg-purple-700">Cadastrar Custos</router-link>
         <router-link to="/admin/gerenciar-precos" class="block py-2 px-2 rounded hover:bg-purple-700">Gerenciar Preços</router-link>
+        <router-link to="/admin/importar-historico" class="block py-2 px-2 rounded hover:bg-purple-700">Importar Histórico</router-link>
       </div>
 
       <div class="mt-4">

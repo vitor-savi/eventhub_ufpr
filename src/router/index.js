@@ -121,6 +121,11 @@ const routes = [
         path: 'gerenciar-precos',
         component: () => import('../pages/AdminPriceManagement.vue'),
       }
+      ,
+      {
+        path: 'importar-historico',
+        component: () => import('../pages/AdminImportHistory.vue'),
+      }
     ]
   },
 
