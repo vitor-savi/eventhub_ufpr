@@ -5,7 +5,6 @@
     <nav class="flex flex-col gap-3">
       <div>
         <div class="text-xs font-semibold text-purple-200 mb-1" v-if="!collapsed">Gestão de Orçamentos</div>
-        <router-link to="/admin/novas-solicitacoes" class="block py-2 px-2 rounded hover:bg-purple-700">Novas Solicitações</router-link>
         <router-link to="/admin/orcamentos" class="block py-2 px-2 rounded hover:bg-purple-700">Todos Orçamentos</router-link>
       </div>
 
@@ -31,7 +30,7 @@
       </div>
 
       <div class="mt-4">
-        <router-link to="/admin/configuracoes" class="block py-2 px-2 rounded hover:bg-purple-700">Configurações da Empresa</router-link>
+        <div class="text-xs font-semibold text-purple-200 mb-2" v-if="!collapsed">Perfil</div>
         <router-link to="/admin/perfil" class="block py-2 px-2 rounded hover:bg-purple-700">Meu Perfil</router-link>
       </div>
     </nav>

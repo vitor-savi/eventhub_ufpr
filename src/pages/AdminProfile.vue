@@ -62,7 +62,7 @@
 import { ref } from 'vue'
 
 // Mock profile data; em produção viria do store/API
-const profile = ref({ name: 'Maria Admin', email: 'admin@eventhub.com', phone: '(XX) XXXXX-XXXX' })
+const profile = ref({ name: 'Maria Admin', email: 'admin@eventhub.com', phone: '(41) 99999-9999' })
 const errors = ref({ name: '', email: '', phone: '' })
 const saveMsg = ref('')
 const saveError = ref(false)
