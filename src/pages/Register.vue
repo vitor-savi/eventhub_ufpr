@@ -1,9 +1,15 @@
 <template>
-  <div class="min-h-screen grid grid-cols-1 md:grid-cols-2">
+  <div class="min-h-screen grid grid-cols-1 md:grid-cols-2 relative">
+    <!-- Back Button -->
+    <router-link to="/" class="absolute top-6 left-6 z-10 flex items-center gap-2 text-white hover:text-white/80 transition-colors">
+      <i class="pi pi-arrow-left"></i>
+      <span class="text-sm font-medium">Voltar</span>
+    </router-link>
+
     <!-- Left Panel -->
     <div class="bg-primary p-8 flex flex-col justify-center items-center text-white">
-      <div class="w-32 h-32 bg-white rounded-lg mb-8 flex items-center justify-center">
-        <span class="text-primary text-lg font-bold">LOGO</span>
+      <div class="w-40 h-40 mb-8 flex items-center justify-center">
+        <img src="/icons/logo_eventhub.jpg" alt="EventHub Logo" class="w-full h-full object-contain rounded-lg" />
       </div>
       <h2 class="text-2xl font-bold mb-4">Bem-vindo(a)!</h2>
       <p class="text-center max-w-sm">

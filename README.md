@@ -9,12 +9,6 @@ npm install
 npm run dev
 ```
 
-Docker:
-
-```powershell
-docker compose up --build
-```
-
 Mock users:
 - cliente@gmail.com (role: cliente)
 - admin@eventhub.com (role: admin)
