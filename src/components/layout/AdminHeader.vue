@@ -2,13 +2,13 @@
   <header class="fixed left-0 w-full top-0 z-50 h-16 bg-gradient-to-r from-purple-500 to-purple-400">
   <div :class="['flex items-center justify-between h-full pr-8', collapsed ? 'pl-16' : 'pl-1']">
       <div class="flex items-center gap-4">
-        <button @click="toggleSidebar" class="text-white/90 px-3 py-2 rounded hover:bg-white/10 md:hidden">☰</button>
-        <button @click="toggleSidebar" class="text-white/90 px-3 py-2 rounded hover:bg-white/10 hidden md:inline-block">☰</button>
+        <button class="text-white/90 px-3 py-2 rounded hover:bg-white/10 md:hidden">☰</button>
+        <button class="text-white/90 px-3 py-2 rounded hover:bg-white/10 hidden md:inline-block">☰</button>
         <router-link to="/admin/dashboard" class="text-2xl font-extrabold text-white tracking-wide">EVENTHUB</router-link>
-        <router-link to="/admin/eventos" class="text-white font-medium hover:text-white/80 transition-colors">Eventos</router-link>
+        <router-link to="/admin/agenda" class="text-white font-medium hover:text-white/80 transition-colors">Eventos</router-link>
         <router-link to="/admin/orcamentos" class="text-white font-medium hover:text-white/80 transition-colors">Orçamentos</router-link>
         <router-link to="/admin/clientes" class="text-white font-medium hover:text-white/80 transition-colors">Clientes</router-link>
-        <router-link to="/admin/relatorios" class="text-white font-medium hover:text-white/80 transition-colors">Relatórios</router-link>
+        <router-link to="/admin/relatorios-financeiros" class="text-white font-medium hover:text-white/80 transition-colors">Relatórios</router-link>
       </div>
         <div class="flex items-center gap-4">
           <span class="text-white/90 font-medium">Olá, {{ userName }}</span>
