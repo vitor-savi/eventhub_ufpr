@@ -1,6 +1,6 @@
 # Eventhub
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+<!-- [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) -->
 [![Vue 3](https://img.shields.io/badge/framework-Vue%203-brightgreen.svg)](https://vuejs.org)
 [![Vite](https://img.shields.io/badge/build-vite-yellow.svg)](https://vitejs.dev)
 
