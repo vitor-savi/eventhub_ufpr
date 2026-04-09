@@ -1,9 +1,11 @@
-version: '3'
 services:
-  eventhub:
+  eventhub-services:
     build: .
+    image: eventhub:v1.0.0
+    container_name: eventhub-web-app
     ports:
       - "5173:5173"
     volumes:
       - .:/app
+      - /app/node_modules
     command: npm run dev
